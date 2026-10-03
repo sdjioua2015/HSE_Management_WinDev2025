@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1400" height="900" viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#f6f8fe"/>
+      <stop offset="100%" stop-color="#eef3ff"/>
+    </linearGradient>
+    <linearGradient id="header" x1="0" x2="1">
+      <stop offset="0%" stop-color="#1c3f71"/>
+      <stop offset="100%" stop-color="#2c7be5"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#bg)"/>
+  <rect x="40" y="40" width="1320" height="820" rx="18" fill="#ffffff" stroke="#dfeaf5"/>
+  <rect x="40" y="40" width="1320" height="100" rx="18" fill="url(#header)"/>
+  <text x="80" y="95" font-family="Arial" font-size="34" fill="#ffffff" font-weight="bold">Connexion HSE</text>
+
+  <rect x="500" y="220" width="400" height="430" rx="18" fill="#f8fbff" stroke="#dfeaf5"/>
+  <text x="700" y="270" font-family="Arial" font-size="32" fill="#1f355d" text-anchor="middle" font-weight="bold">Authentification</text>
+
+  <rect x="560" y="310" width="280" height="42" rx="10" fill="#ffffff" stroke="#d3dfef"/>
+  <text x="590" y="338" font-family="Arial" font-size="16" fill="#8093b1">Login</text>
+
+  <rect x="560" y="380" width="280" height="42" rx="10" fill="#ffffff" stroke="#d3dfef"/>
+  <text x="590" y="408" font-family="Arial" font-size="16" fill="#8093b1">Mot de passe</text>
+
+  <rect x="560" y="455" width="280" height="52" rx="12" fill="#2c7be5"/>
+  <text x="700" y="490" font-family="Arial" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="bold">Connexion</text>
+
+  <text x="700" y="560" font-family="Arial" font-size="16" fill="#7d8da3" text-anchor="middle">HSE Management - WinDev 2025</text>
+</svg>

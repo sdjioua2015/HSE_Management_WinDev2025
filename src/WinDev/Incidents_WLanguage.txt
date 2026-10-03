@@ -1,0 +1,54 @@
+// -------------------------------------------
+// FEN_INCIDENTS - Gestion des incidents
+// -------------------------------------------
+
+PROCEDURE ChargerListeIncidents()
+    TABLEAU_Incidents.DeleteAll()
+    HReadFirst(T_Incident)
+    WHILE HFound() = True
+        TABLEAU_Incidents.AddLine()
+        TABLEAU_Incidents.CodeIncident = T_Incident.CodeIncident
+        TABLEAU_Incidents.TypeIncident = T_Incident.IDTypeIncident
+        TABLEAU_Incidents.Site = T_Incident.IDSite
+        TABLEAU_Incidents.DateIncident = T_Incident.DateIncident
+        TABLEAU_Incidents.Statut = T_Incident.Statut
+        HReadNext(T_Incident)
+    END
+END
+
+PROCEDURE AjouterIncident()
+    sCode is string
+    sCode = "INC-" + DateSys()
+
+    HAdd(T_Incident)
+    T_Incident.CodeIncident = sCode
+    T_Incident.IDTypeIncident = COMBO_TypeIncident
+    T_Incident.IDGravite = COMBO_Gravite
+    T_Incident.IDSite = COMBO_Site
+    T_Incident.IDPersonnel = COMBO_Personnel
+    T_Incident.DateIncident = EDT_DateIncident
+    T_Incident.Description = EDT_Description
+    T_Incident.CauseProbable = EDT_Cause
+    T_Incident.MesuresImmediates = EDT_Mesure
+    T_Incident.Statut = "Ouvert"
+
+    HSave(T_Incident)
+
+    IF HError() <> 0 THEN
+        Error("Erreur lors de l'enregistrement de l'incident")
+    ELSE
+        Info("Incident enregistré avec succès")
+        ChargerListeIncidents()
+    END
+END
+
+PROCEDURE RechercherIncident(parCode)
+    HReadSeekFirst(T_Incident, CodeIncident, parCode)
+    IF HFound() THEN
+        EDT_Description = T_Incident.Description
+        COMBO_TypeIncident = T_Incident.IDTypeIncident
+        COMBO_Gravite = T_Incident.IDGravite
+    ELSE
+        Info("Aucun incident trouvé")
+    END
+END

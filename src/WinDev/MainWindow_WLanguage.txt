@@ -1,0 +1,36 @@
+// -------------------------------------------
+// FEN_PRINCIPALE - Menu principal
+// -------------------------------------------
+
+PROCEDURE InitialiseMenu()
+    MENU_Administration.Enabled = True
+    MENU_Personnel.Enabled = True
+    MENU_Incidents.Enabled = True
+    MENU_Audits.Enabled = True
+    MENU_Actions.Enabled = True
+    MENU_Rapports.Enabled = True
+END
+
+PROCEDURE OuvrirPersonnel()
+    OpenWindow(FEN_Personnel)
+END
+
+PROCEDURE OuvrirIncidents()
+    OpenWindow(FEN_Incidents)
+END
+
+PROCEDURE OuvrirAudits()
+    OpenWindow(FEN_Audits)
+END
+
+PROCEDURE OuvrirActions()
+    OpenWindow(FEN_Actions)
+END
+
+PROCEDURE OuvrirRapports()
+    OpenWindow(FEN_Rapports)
+END
+
+PROCEDURE OuvrirAdministration()
+    OpenWindow(FEN_Administration)
+END

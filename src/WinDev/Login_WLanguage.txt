@@ -1,0 +1,40 @@
+// -------------------------------------------
+// FEN_LOGIN - Exemple de fenêtre de connexion
+// -------------------------------------------
+
+PROCEDURE ConnecterBase()
+    sChaineConnexion is string
+    sChaineConnexion = "Provider=SQLOLEDB;Data Source=LOCALHOST;Initial Catalog=HSE_DB;User ID=sa;Password=VotreMotDePasse;"
+    HOpenConnection("HSE_DB", sChaineConnexion)
+    IF HError() <> 0 THEN
+        Error("Erreur de connexion à la base HSE")
+    ELSE
+        Info("Connexion réussie")
+    END
+END
+
+PROCEDURE ValiderConnexion()
+    sLogin is string
+    sMotDePasse is string
+    sLogin = EDT_Login
+    sMotDePasse = EDT_MotDePasse
+
+    HReadSeekFirst(T_Utilisateur, Login, sLogin)
+    IF HFound() THEN
+        IF T_Utilisateur.MotDePasse = sMotDePasse THEN
+            IF T_Utilisateur.Actif = True THEN
+                OuvrirFenetrePrincipale()
+            ELSE
+                Error("Compte utilisateur désactivé")
+            END
+        ELSE
+            Error("Mot de passe incorrect")
+        END
+    ELSE
+        Error("Utilisateur introuvable")
+    END
+END
+
+PROCEDURE OuvrirFenetrePrincipale()
+    OpenWindow(FEN_Principale)
+END
